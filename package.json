@@ -1,0 +1,46 @@
+{
+  "name": "Expensify",
+  "version": "1.0.0",
+  "description": "A practice project!",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "Amir Mohseni",
+  "license": "ISC",
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.1.2",
+    "@babel/core": "7.1.2",
+    "@babel/plugin-proposal-class-properties": "7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "7.1.0",
+    "@babel/plugin-transform-react-constant-elements": "7.0.0",
+    "@babel/plugin-transform-react-inline-elements": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/register": "7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-dynamic-import-node": "2.2.0",
+    "babel-plugin-react-intl": "3.0.1",
+    "babel-plugin-react-transform": "3.0.0",
+    "babel-plugin-styled-components": "1.8.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.19",
+    "css-loader": "1.0.0",
+    "node-sass": "4.11.0",
+    "sass-loader": "7.1.0",
+    "style-loader": "0.23.1",
+    "webpack": "4.29.6",
+    "webpack-cli": "3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
