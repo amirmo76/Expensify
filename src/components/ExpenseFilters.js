@@ -9,14 +9,34 @@ import {
 } from "../actions/filters";
 import { DateRangePicker } from "react-dates";
 
-class ExpenseFilters extends React.Component {
+export class ExpenseFilters extends React.Component {
   state = {
     dateRangePickerFocused: null
   };
 
   onDatesChange = ({ startDate, endDate }) => {
-    this.props.dispatch(setStartDate(startDate));
-    this.props.dispatch(setEndDate(endDate));
+    this.props.setStartDate(startDate);
+    this.props.setEndDate(endDate);
+  };
+
+  ontextFilterChange = e => {
+    this.props.editTextFilter({ text: e.target.value });
+  };
+
+  onSortChange = e => {
+    switch (e.target.value) {
+      case "amount":
+        this.props.sortByAmount();
+        break;
+
+      case "date":
+        this.props.sortByDate();
+        break;
+    }
+  };
+
+  onFocusChange = focused => {
+    this.setState(() => ({ dateRangePickerFocused: focused }));
   };
 
   render() {
@@ -25,24 +45,9 @@ class ExpenseFilters extends React.Component {
         <h2>Filters</h2>
         <input
           value={this.props.filters.text}
-          onChange={e => {
-            this.props.dispatch(editTextFilter({ text: e.target.value }));
-          }}
+          onChange={this.ontextFilterChange}
         />
-        <select
-          value={this.props.filters.sortBy}
-          onChange={e => {
-            switch (e.target.value) {
-              case "amount":
-                this.props.dispatch(sortByAmount());
-                break;
-
-              case "date":
-                this.props.dispatch(sortByDate());
-                break;
-            }
-          }}
-        >
+        <select value={this.props.filters.sortBy} onChange={this.onSortChange}>
           <option value="date" defaultValue>
             Date
           </option>
@@ -54,9 +59,7 @@ class ExpenseFilters extends React.Component {
           numberOfMonths={1}
           isOutsideRange={() => false}
           focusedInput={this.state.dateRangePickerFocused}
-          onFocusChange={focused =>
-            this.setState(() => ({ dateRangePickerFocused: focused }))
-          }
+          onFocusChange={this.onFocusChange}
           onDatesChange={this.onDatesChange}
           startDateId="date_range_start"
           endDateId="date_range_end"
@@ -71,4 +74,15 @@ const mapStateToProps = state => ({
   filters: state.filters
 });
 
-export default connect(mapStateToProps)(ExpenseFilters);
+const mapDisaptchToProps = (dispatch, props) => ({
+  setStartDate: date => dispatch(setStartDate(date)),
+  setEndDate: date => dispatch(setEndDate(date)),
+  editTextFilter: data => dispatch(editTextFilter(data)),
+  sortByAmount: () => dispatch(sortByAmount()),
+  sortByDate: () => dispatch(sortByDate())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDisaptchToProps
+)(ExpenseFilters);
