@@ -6,16 +6,8 @@ import "react-dates/lib/css/_datepicker.css";
 import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { Provider } from "react-redux";
-import { addExpense } from "./actions/expenses";
-import { editTextFilter } from "./actions/filters";
 
 const store = configureStore();
-
-store.dispatch(addExpense({ description: "bills", amount: 20000 }));
-store.dispatch(addExpense({ description: "car", amount: 100000 }));
-store.dispatch(
-  addExpense({ description: "coffe", amount: 2020, createdAt: 20 })
-);
 
 const jsx = (
   <Provider store={store}>
