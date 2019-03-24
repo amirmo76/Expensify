@@ -17,7 +17,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "live-server": "^1.2.1",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.3",
@@ -31,6 +30,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "live-server": "^1.2.1",
     "@babel/cli": "7.1.2",
     "@babel/core": "7.1.2",
     "@babel/plugin-proposal-class-properties": "7.1.0",
