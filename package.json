@@ -4,11 +4,13 @@
   "description": "A practice project!",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
     "serve:dev": "webpack-dev-server",
     "serve": "live-server public/",
     "test": "jest --config=jest.config.json",
     "build:dev": "webpack",
-    "build:prod": "webpack -p --env production"
+    "build:prod": "webpack -p --env production",
+    "heroku-postbuild": "npm run build:prod"
   },
   "keywords": [],
   "author": "Amir Mohseni",
